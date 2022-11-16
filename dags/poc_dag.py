@@ -8,7 +8,7 @@ with DAG("dbt_dag", start_date=datetime(2021, 1, 1), schedule_interval=None, cat
     start = DummyOperator(task_id="start")
 
     dbt_model = BashOperator(
-        task_id="dbt_model", bash_command="cd /opt/postgres_dbt && dbt run --select hosts_s --profiles dir ."
+        task_id="dbt_model", bash_command="cd /opt/postgres_dbt && dbt run --select hosts_s --profiles-dir ."
     )
 
     end = DummyOperator(task_id="end")
